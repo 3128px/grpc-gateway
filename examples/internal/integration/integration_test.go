@@ -18,11 +18,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/3128px/grpc-gateway/v2/examples/internal/proto/examplepb"
+	"github.com/3128px/grpc-gateway/v2/examples/internal/proto/pathenum"
+	"github.com/3128px/grpc-gateway/v2/examples/internal/proto/sub"
+	"github.com/3128px/grpc-gateway/v2/runtime"
 	"github.com/google/go-cmp/cmp"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/pathenum"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/sub"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	statuspb "google.golang.org/genproto/googleapis/rpc/status"
 	fieldmaskpb "google.golang.org/genproto/protobuf/field_mask"
 	"google.golang.org/grpc/codes"
@@ -49,7 +49,7 @@ func TestEcho(t *testing.T) {
 			testEchoOneof2(t, 8088, apiPrefix, "application/json")
 			testEchoBody(t, 8088, apiPrefix, true)
 			testEchoBody(t, 8088, apiPrefix, false)
-			// Use SendHeader/SetTrailer without gRPC server https://github.com/grpc-ecosystem/grpc-gateway/issues/517#issuecomment-684625645
+			// Use SendHeader/SetTrailer without gRPC server https://github.com/3128px/grpc-gateway/issues/517#issuecomment-684625645
 			testEchoBody(t, 8089, apiPrefix, true)
 			testEchoBody(t, 8089, apiPrefix, false)
 		})

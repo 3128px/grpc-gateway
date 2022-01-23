@@ -6,10 +6,10 @@ import (
 	"os"
 	"strings"
 
+	"github.com/3128px/grpc-gateway/v2/internal/codegenerator"
+	"github.com/3128px/grpc-gateway/v2/internal/descriptor"
+	"github.com/3128px/grpc-gateway/v2/protoc-gen-openapiv2/internal/genopenapi"
 	"github.com/golang/glog"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/codegenerator"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/internal/genopenapi"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )

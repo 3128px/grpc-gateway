@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
+	gwruntime "github.com/3128px/grpc-gateway/v2/runtime"
 	"github.com/golang/glog"
-	gwruntime "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 )
 
 // Endpoint describes a gRPC endpoint

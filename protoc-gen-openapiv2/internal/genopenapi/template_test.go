@@ -12,12 +12,12 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/3128px/grpc-gateway/v2/internal/descriptor"
+	"github.com/3128px/grpc-gateway/v2/internal/descriptor/openapiconfig"
+	"github.com/3128px/grpc-gateway/v2/internal/httprule"
+	openapi_options "github.com/3128px/grpc-gateway/v2/protoc-gen-openapiv2/options"
+	"github.com/3128px/grpc-gateway/v2/runtime"
 	"github.com/google/go-cmp/cmp"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor/openapiconfig"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/httprule"
-	openapi_options "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/genproto/protobuf/field_mask"
 	"google.golang.org/protobuf/proto"
@@ -241,7 +241,7 @@ func TestMessageToQueryParametersWithEnumAsInt(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -427,7 +427,7 @@ func TestMessageToQueryParametersWithOmitEnumDefaultValue(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -613,7 +613,7 @@ func TestMessageToQueryParameters(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -738,7 +738,7 @@ func TestMessageToQueryParametersNoRecursive(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -863,7 +863,7 @@ func TestMessageToQueryParametersRecursive(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -976,7 +976,7 @@ func TestMessageToQueryParametersWithJsonName(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -1153,7 +1153,7 @@ func TestApplyTemplateSimple(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -1256,7 +1256,7 @@ func TestApplyTemplateMultiService(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -1368,7 +1368,7 @@ func TestApplyTemplateOverrideOperationID(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -1488,7 +1488,7 @@ func TestApplyTemplateExtensions(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -1700,7 +1700,7 @@ func TestApplyTemplateHeaders(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -2309,7 +2309,7 @@ func TestApplyTemplateRequestWithoutClientStreaming(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc, nesteddesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -2475,7 +2475,7 @@ func TestApplyTemplateRequestWithClientStreaming(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc, nesteddesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -2642,7 +2642,7 @@ func TestApplyTemplateRequestWithUnusedReferences(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{reqdesc, respdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -2812,7 +2812,7 @@ func TestApplyTemplateRequestWithBodyQueryParameters(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{bookDesc, createDesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+					GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -3056,7 +3056,7 @@ func TestApplyTemplateProtobufAny(t *testing.T) {
 					MessageType:    []*descriptorpb.DescriptorProto{reqdesc, respdesc},
 					Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+						GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 				},
 				GoPkg: descriptor.GoPackage{
@@ -4070,7 +4070,7 @@ func TestSchemaOfField(t *testing.T) {
 					Package:        proto.String("example"),
 					Dependency:     []string{"third_party/google.proto"},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+						GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 					MessageType: []*descriptorpb.DescriptorProto{
 						{
@@ -4555,7 +4555,7 @@ func TestRenderMessagesAsDefinition(t *testing.T) {
 					EnumType:       []*descriptorpb.EnumDescriptorProto{},
 					Service:        []*descriptorpb.ServiceDescriptorProto{},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+						GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 				},
 				Messages: msgs,
@@ -4896,7 +4896,7 @@ func TestMessageOptionsWithGoTemplate(t *testing.T) {
 					EnumType:       []*descriptorpb.EnumDescriptorProto{},
 					Service:        []*descriptorpb.ServiceDescriptorProto{},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+						GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 				},
 				Messages: msgs,
@@ -4966,7 +4966,7 @@ func TestTemplateWithoutErrorDefinition(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -5060,7 +5060,7 @@ func TestTemplateWithInvalidDuplicateOperations(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc1},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -5216,7 +5216,7 @@ func TestSingleServiceTemplateWithDuplicateHttp1Operations(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{getBarMsgDesc, deleteBarMsgDesc, getFooMsgDesc, deleteFooMsgDesc, emptyMsgDesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc1},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -5498,7 +5498,7 @@ func TestTemplateWithDuplicateHttp1Operations(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc1, svc2},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -5882,7 +5882,7 @@ func TestParseIncompleteSecurityRequirement(t *testing.T) {
 			Name:           proto.String("example.proto"),
 			Package:        proto.String("example"),
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
+				GoPackage: proto.String("github.com/3128px/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 	}

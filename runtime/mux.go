@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/httprule"
+	"github.com/3128px/grpc-gateway/v2/internal/httprule"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
 	"google.golang.org/grpc/metadata"
@@ -239,7 +239,7 @@ func (s *ServeMux) Handle(meth string, pat Pattern, h HandlerFunc) {
 }
 
 // HandlePath allows users to configure custom path handlers.
-// refer: https://grpc-ecosystem.github.io/grpc-gateway/docs/operations/inject_router/
+// refer: https://3128px.github.io/grpc-gateway/docs/operations/inject_router/
 func (s *ServeMux) HandlePath(meth string, pathPattern string, h HandlerFunc) error {
 	compiler, err := httprule.Parse(pathPattern)
 	if err != nil {
