@@ -628,10 +628,9 @@ func (r *Registry) RegisterOpenAPIOptions(opts *openapiconfig.OpenAPIOptions) er
 	}
 
 	for _, opt := range opts.File {
-		if _, ok := r.files[opt.File]; !ok {
-			return fmt.Errorf("no file %s found", opt.File)
+		if _, ok := r.files[opt.File]; ok {
+			r.fileOptions[opt.File] = opt.Option
 		}
-		r.fileOptions[opt.File] = opt.Option
 	}
 
 	// build map of all registered methods
@@ -648,26 +647,23 @@ func (r *Registry) RegisterOpenAPIOptions(opts *openapiconfig.OpenAPIOptions) er
 
 	for _, opt := range opts.Method {
 		qualifiedMethod := "." + opt.Method
-		if _, ok := methods[qualifiedMethod]; !ok {
-			return fmt.Errorf("no method %s found", opt.Method)
+		if _, ok := methods[qualifiedMethod]; ok {
+			r.methodOptions[qualifiedMethod] = opt.Option
 		}
-		r.methodOptions[qualifiedMethod] = opt.Option
 	}
 
 	for _, opt := range opts.Message {
 		qualifiedMessage := "." + opt.Message
-		if _, ok := r.msgs[qualifiedMessage]; !ok {
-			return fmt.Errorf("no message %s found", opt.Message)
+		if _, ok := r.msgs[qualifiedMessage]; ok {
+			r.messageOptions[qualifiedMessage] = opt.Option
 		}
-		r.messageOptions[qualifiedMessage] = opt.Option
 	}
 
 	for _, opt := range opts.Service {
 		qualifiedService := "." + opt.Service
-		if _, ok := services[qualifiedService]; !ok {
-			return fmt.Errorf("no service %s found", opt.Service)
+		if _, ok := services[qualifiedService]; ok {
+			r.serviceOptions[qualifiedService] = opt.Option
 		}
-		r.serviceOptions[qualifiedService] = opt.Option
 	}
 
 	// build map of all registered fields
@@ -679,10 +675,9 @@ func (r *Registry) RegisterOpenAPIOptions(opts *openapiconfig.OpenAPIOptions) er
 	}
 	for _, opt := range opts.Field {
 		qualifiedField := "." + opt.Field
-		if _, ok := fields[qualifiedField]; !ok {
-			return fmt.Errorf("no field %s found", opt.Field)
+		if _, ok := fields[qualifiedField]; ok {
+			r.fieldOptions[qualifiedField] = opt.Option
 		}
-		r.fieldOptions[qualifiedField] = opt.Option
 	}
 	return nil
 }
